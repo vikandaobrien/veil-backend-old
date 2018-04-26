@@ -12,7 +12,7 @@ app.disable('x-powered-by');
 app.use(parser.json());
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
-const routes = require('routes/posts');
+const routes = require('./src/routes/posts');
 app.use('/posts', routes);
 
 app.use((req, res, next) => {
