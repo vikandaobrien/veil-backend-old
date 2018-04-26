@@ -10,7 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/vikandagonzales/veil-backend.git"
   },
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "expressjs",
+    "knexjs",
+    "sql",
+    "postgresql"
+  ],
   "author": "Vikanda Gonzales",
   "license": "ISC",
   "bugs": {
