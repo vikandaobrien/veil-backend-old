@@ -4,7 +4,9 @@
   "description": "Backend for https://github.com/vikandagonzales/veil",
   "main": "index.js",
   "scripts": {
-    "knex": "knex"
+    "knex": "knex",
+    "dev": "nodemon ./app.js",
+    "start": "node ./app.js"
   },
   "repository": {
     "type": "git",
