@@ -1,5 +1,5 @@
 {
-  "name": "Veil - Backend",
+  "name": "veil-backend",
   "version": "1.0.0",
   "description": "Backend for https://github.com/vikandagonzales/veil",
   "main": "index.js",
