@@ -4,13 +4,50 @@ exports.seed = function(knex, Promise) {
   return knex(TABLE_NAME).del()
     .then(function () {
       return knex(TABLE_NAME).insert([
-        {id: 1, name: 'Ada Lovelace'},
-        {id: 2, name: 'Alan Turing'},
-        {id: 3, name: 'Grace Hopper'},
-        {id: 4, name: 'John Von Neumann'}
+        {
+          post_id: 1,
+          tag_id: 1
+        },
+        {
+          post_id: 1,
+          tag_id: 2
+        },
+        {
+          post_id: 2,
+          tag_id: 1
+        },
+        {
+          post_id: 2,
+          tag_id: 2
+        },
+        {
+          post_id: 3,
+          tag_id: 3
+        },
+        {
+          post_id: 4,
+          tag_id: 1
+        },
+        {
+          post_id: 5,
+          tag_id: 3
+        },
+        {
+          post_id: 5,
+          tag_id: 4
+        },
+        {
+          post_id: 6,
+          tag_id: 2
+        },
+        {
+          post_id: 7,
+          tag_id: 1
+        },
+        {
+          post_id: 7,
+          tag_id: 2
+        }
       ]);
     })
-    .then(() => {
-    return knex.raw(`SELECT setval('${TABLE_NAME}_id_seq', (SELECT MAX(id) FROM ${TABLE_NAME}));`)
-  })
 };

@@ -3,8 +3,9 @@ const TABLE_NAME = 'games'
 exports.up = function(knex, Promise) {
   return knex.schema.createTable(TABLE_NAME, function(table){
     table.increments();
-    table.string('name').notNullable().defaultsTo('');
-    table.string('server').notNullable().defaultsTo('');
+    table.string('name').notNullable();
+    table.string('server').defaultsTo('n/a');
+    table.string('image').defaultsTo('');
     table.timestamps(true, true);
   })
 };

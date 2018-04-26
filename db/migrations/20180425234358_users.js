@@ -3,15 +3,16 @@ const TABLE_NAME = 'users'
 exports.up = function(knex, Promise) {
   return knex.schema.createTable(TABLE_NAME, function(table){
     table.increments();
-    table.string('email').notNullable().defaultsTo('');
-    table.string('password').notNullable().defaultsTo('');
-    table.string('fname').notNullable().defaultsTo('');
-    table.string('lname').notNullable().defaultsTo('');
-    table.string('location').notNullable().defaultsTo('');
-    table.string('timezone').notNullable().defaultsTo('');
-    table.string('role').notNullable().defaultsTo('');
-    table.string('image');
-    table.string('info');
+    table.string('email').notNullable();
+    table.string('password').notNullable();
+    table.string('fname').notNullable();
+    table.string('lname').notNullable();
+    table.date('birthday').notNullable();
+    table.string('location').notNullable();
+    table.string('timezone').notNullable();
+    table.string('role').defaultsTo('Knight');
+    table.string('image').defaultsTo('');
+    table.string('info', 100000).defaultsTo('');
     table.timestamps(true, true);
   })
 };

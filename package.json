@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "knex": "knex",
-    "dev": "nodemon ./app.js",
-    "start": "node ./app.js"
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js"
   },
   "repository": {
     "type": "git",

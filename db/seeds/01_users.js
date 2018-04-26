@@ -4,10 +4,32 @@ exports.seed = function(knex, Promise) {
   return knex(TABLE_NAME).del()
     .then(function () {
       return knex(TABLE_NAME).insert([
-        {id: 1, name: 'Ada Lovelace'},
-        {id: 2, name: 'Alan Turing'},
-        {id: 3, name: 'Grace Hopper'},
-        {id: 4, name: 'John Von Neumann'}
+        {
+          id: 1,
+          email: 'vikanda.gonzales@yahoo.com',
+          password: 'moo',
+          fname: 'Vikanda',
+          lname: 'Gonzales',
+          birthday: '1992-09-16',
+          location: 'Seattle, WA',
+          timezone: 'UTC-8:00',
+          role: 'Leader',
+          image: '',
+          info: ''
+        },
+        {
+          id: 2,
+          email: 'wanjak.gonzales@gmail.com',
+          password: 'moo',
+          fname: 'Nino',
+          lname: 'Gonzales',
+          birthday: '1994-04-06',
+          location: 'Vancouver, BC',
+          timezone: 'UTC-8:00',
+          role: 'Knight',
+          image: '',
+          info: ''
+        }
       ]);
     })
     .then(() => {

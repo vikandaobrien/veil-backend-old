@@ -4,10 +4,26 @@ exports.seed = function(knex, Promise) {
   return knex(TABLE_NAME).del()
     .then(function () {
       return knex(TABLE_NAME).insert([
-        {id: 1, name: 'Ada Lovelace'},
-        {id: 2, name: 'Alan Turing'},
-        {id: 3, name: 'Grace Hopper'},
-        {id: 4, name: 'John Von Neumann'}
+        {
+          id: 1,
+          name: 'News',
+          color: 'yellow'
+        },
+        {
+          id: 2,
+          name: 'Final Fantasy XIV',
+          color: 'blue'
+        },
+        {
+          id: 3,
+          name: 'Guild Wars 2',
+          color: 'red'
+        },
+        {
+          id: 4,
+          name: 'Mabinogi',
+          color: 'purple'
+        }
       ]);
     })
     .then(() => {

@@ -3,12 +3,11 @@ const TABLE_NAME = 'characters'
 exports.up = function(knex, Promise) {
   return knex.schema.createTable(TABLE_NAME, function(table){
     table.increments();
-    table.string('email').notNullable().defaultsTo('');
-    table.string('name').notNullable().defaultsTo('');
-    table.string('class').notNullable().defaultsTo('');
-    table.string('server').notNullable().defaultsTo('');
-    table.string('image');
-    table.string('info');
+    table.string('name').notNullable();
+    table.string('class').defaultsTo('n/a');
+    table.string('server').defaultsTo('n/a');
+    table.string('image').defaultsTo('');
+    table.string('info', 100000).defaultsTo('');
     table.integer('user_id').notNullable();
     table.foreign('user_id').references('users.id').onDelete('CASCADE');
     table.integer('game_id').notNullable();
