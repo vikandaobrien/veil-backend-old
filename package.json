@@ -1,0 +1,25 @@
+{
+  "name": "Veil - Backend",
+  "version": "1.0.0",
+  "description": "Backend for https://github.com/vikandagonzales/veil",
+  "main": "index.js",
+  "scripts": {
+    "knex": "knex"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikandagonzales/veil-backend.git"
+  },
+  "keywords": [],
+  "author": "Vikanda Gonzales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikandagonzales/veil-backend/issues"
+  },
+  "homepage": "https://github.com/vikandagonzales/veil-backend#readme",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "knex": "^0.14.6",
+    "pg": "^7.4.1"
+  }
+}
