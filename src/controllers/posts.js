@@ -2,19 +2,23 @@ const model = require('../models/posts');
 
 function getAll (req, res, next) {
   model.getAll()
-  .then((data) => {
+  .then(data => {
     res.status(200).send({data});
   })
   .catch(next)
 }
 
 function getOne (req, res, next) {
-  const post = model.getOne(req.params.id);
-  if (post.data) {
-    res.status(200).send({ data: post.data });
-  } else if (post.error) {
-    return next({ status: 404, message: post.error });
-  }
+  model.getOne(parseInt(req.params.id))
+  .then(data => {
+    if (data) {
+      return res.status(200).send({ data })
+    }
+    else {
+      throw { status: 404, message: 'Post not found' }
+    }
+  })
+  .catch(next);
 }
 
 function create (req, res, next) {
