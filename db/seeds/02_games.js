@@ -8,19 +8,37 @@ exports.seed = function(knex, Promise) {
           id: 1,
           name: 'Final Fantasy XIV',
           server: 'Balmung',
-          image: ''
+          image: 'https://goo.gl/T5sHmK'
         },
         {
           id: 2,
-          name: 'Guild Wars 2',
-          server: 'Ehmry Bay',
-          image: ''
+          name: 'Overwatch',
+          server: 'n/a',
+          image: 'https://goo.gl/HJUka9'
         },
         {
           id: 3,
+          name: 'Guild Wars 2',
+          server: 'Ehmry Bay',
+          image: 'https://goo.gl/FW29k7'
+        },
+        {
+          id: 4,
+          name: 'Fortnite',
+          server: 'n/a',
+          image: 'https://goo.gl/NFQFNE'
+        },
+        {
+          id: 5,
+          name: 'Minecraft',
+          server: 'n/a',
+          image: 'https://goo.gl/EKFmrx'
+        },
+        {
+          id: 6,
           name: 'Mabinogi',
           server: 'Alexina',
-          image: ''
+          image: 'https://goo.gl/pcaxwT'
         }
       ]);
     })
