@@ -21,7 +21,7 @@ app.use('/users', require('./routes/users'));
 app.use('/games', require('./routes/games'));
 //app.use('/characters', require('./routes/characters'));
 app.use('/posts', require('./routes/posts'));
-//app.use('/tags', require('./routes/tags'));
+app.use('/tags', require('./routes/tags'));
 
 //////////////////////////////////////////////////////////////////////////////
 // example routes, not part of an organized application

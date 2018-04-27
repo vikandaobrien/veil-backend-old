@@ -16,13 +16,18 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          name: 'Guild Wars 2',
+          name: 'Overwatch',
           color: 'red'
         },
         {
           id: 4,
-          name: 'Mabinogi',
-          color: 'purple'
+          name: 'Raiding',
+          color: 'cyan'
+        },
+        {
+          id: 5,
+          name: 'Roleplay',
+          color: 'green'
         }
       ]);
     })

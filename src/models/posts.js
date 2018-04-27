@@ -30,7 +30,7 @@ function getAll () {
       });
     });
     return Promise.all(promises);
-  })
+  });
 }
 
 function getOne (id) {
