@@ -1,6 +1,10 @@
 const db = require('../../db');
 const bcrypt = require('bcrypt-as-promised');
 
+function getAll () {
+  return db('users');
+}
+
 function getOneByUserName (email) {
   return (
     db('users')
@@ -38,6 +42,7 @@ function create (email, password, fname, lname, birthday, location, timezone, ro
 }
 
 module.exports = {
+  getAll,
   getOneByUserName,
   create
 }

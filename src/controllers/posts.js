@@ -12,40 +12,44 @@ function getOne (req, res, next) {
   model.getOne(parseInt(req.params.id))
   .then(data => {
     if (data) {
-      return res.status(200).send({ data })
+      return res.status(200).send({ data });
     }
     else {
-      throw { status: 404, message: 'Post not found' }
+      throw { status: 404, message: 'Post not found' };
     }
   })
   .catch(next);
 }
 
 function create (req, res, next) {
-  const post = model.create(req.body);
-  if (post.data) {
-    res.status(201).send({ data: post.data });
-  } else if (post.error) {
-    return next({ status: 400, message: post.error });
+  console.log(req.body)
+  if (!req.body.title || !req.body.content) {
+    return next({ status: 400, message: 'Bad request'});
   }
+  model.create(req.body.title, req.body.image, req.body.content)
+  .then(data => {
+    res.status(201).send({ data });
+  })
+  .catch(next);
 }
 
 function update (req, res, next) {
-  const post = model.update(req.params.id, req.body);
-  if (post.data) {
-    res.status(200).send({ data: post.data });
-  } else if (post.error) {
-    return next({ status: 400, message: post.error });
+  if (!req.body.title || !req.body.content) {
+    return next({ status: 400, message: 'Bad request'});
   }
+  model.update(parseInt(req.params.id), req.body.title, req.body.image, req.body.content)
+  .then(data => {
+    res.status(200).send({ data });
+  })
+  .catch(next);
 }
 
 function remove (req, res, next) {
-  const post = model.remove(req.params.id);
-  if (post.data) {
-    res.status(200).send({ data: post.data });
-  } else if (post.error) {
-    return next({ status: 404, message: post.error });
-  }
+  model.remove(parseInt(req.params.id))
+  .then(data => {
+    res.status(200).send({ data });
+  })
+  .catch(next);
 }
 
 module.exports = { getAll, getOne, create, update, remove };
