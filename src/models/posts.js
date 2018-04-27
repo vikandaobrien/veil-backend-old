@@ -1,22 +1,40 @@
+const db = require('../../db');
+
 const shortid = require('shortid')
 const fs = require('fs');
 const path = require('path');
 const file = path.join(__dirname, 'posts.json');
 
 function getAll () {
-  const posts = JSON.parse(fs.readFileSync(file, 'utf-8'));
-  return { data: posts };
+  return db('posts')
+  .then(posts => {
+    const promises = posts.map(post => {
+      return db('users')
+      .where('id', post.user_id)
+      .first()
+      .then(user => {
+        post.author = user;
+        return post;
+      });
+    });
+    return Promise.all(promises);
+  })
+  .then(posts => {
+    const promises = posts.map(post => {
+      return db('posts_tags')
+      .join('tags', 'tags.id', 'posts_tags.tag_id')
+      .where('posts_tags.post_id', post.id)
+      .then(tags => {
+        post.tags = tags;
+        return post;
+      });
+    });
+    return Promise.all(promises);
+  })
 }
 
 function getOne (id) {
-  const posts = JSON.parse(fs.readFileSync(file, 'utf-8'));
-  const post = posts.find(post => post.id === id);
-
-  if (post) {
-    return { data: post };
-  } else {
-    return { error: 'Post not found' };
-  }
+  return db('posts').where({ id: id }).first()
 }
 
 function create (body) {

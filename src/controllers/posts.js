@@ -1,8 +1,11 @@
 const model = require('../models/posts');
 
 function getAll (req, res, next) {
-  const posts = model.getAll();
-  res.status(200).send({ data: posts.data });
+  model.getAll()
+  .then((data) => {
+    res.status(200).send({data});
+  })
+  .catch(next)
 }
 
 function getOne (req, res, next) {
