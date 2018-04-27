@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
           location: 'Seattle, WA',
           timezone: 'UTC-8:00',
           role: 'Leader',
-          image: '',
+          image: 'https://goo.gl/MFH4uB',
           info: ''
         },
         {
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
           location: 'Vancouver, BC',
           timezone: 'UTC-8:00',
           role: 'Knight',
-          image: '',
+          image: 'https://goo.gl/fvY7r7',
           info: ''
         }
       ]);
