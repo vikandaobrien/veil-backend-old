@@ -26,7 +26,7 @@ function create (req, res, next) {
   if (!req.body.title || !req.body.content) {
     return next({ status: 400, message: 'Bad request'});
   }
-  model.create(req.body.title, req.body.image, req.body.content)
+  model.create(req.body.title, req.body.image, req.body.content, req.body.user_id)
   .then(data => {
     res.status(201).send({ data });
   })

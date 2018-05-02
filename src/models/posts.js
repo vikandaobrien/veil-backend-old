@@ -57,10 +57,10 @@ function getOne (id) {
   });
 }
 
-function create (title, image, content) {
+function create (title, image, content, user_id) {
   console.log(title)
   return db('posts')
-  .insert({ title, image, content })
+  .insert({ title, image, content, user_id })
   .returning('*')
   .then(([data]) => {
     return data;
