@@ -19,7 +19,7 @@ app.disable('x-powered-by');
 app.use('/auth', require('./routes/auth'));
 app.use('/users', require('./routes/users'));
 app.use('/games', require('./routes/games'));
-//app.use('/characters', require('./routes/characters'));
+app.use('/characters', require('./routes/characters'));
 app.use('/posts', require('./routes/posts'));
 app.use('/tags', require('./routes/tags'));
 
