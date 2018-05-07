@@ -11,5 +11,5 @@ Back-end for https://github.com/vikandagonzales/veil
 
 - Make sure you have PostgreSQL
 - Create a database on your local called veil_dev
-- `run knex migrate:latest`
-- `run knex seed:run`
+- `npm run knex migrate:latest`
+- `npm run knex seed:run`
