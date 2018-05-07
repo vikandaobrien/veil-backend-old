@@ -5,6 +5,39 @@ function getAll () {
   return db('users');
 }
 
+function getOne (id) {
+  return db('users')
+  .where({ id: id })
+  .then(users => {
+    const promises = users.map(user => {
+      return db('users_games')
+      .join('games', 'games.id', 'users_games.game_id')
+      .where('users_games.user_id', user.id)
+      .then(games => {
+        const charPromises = games.map(game => {
+          return db('characters')
+          .where('game_id', game.id)
+          .where('user_id', user.id)
+          .then(characters => {
+            game.characters = characters;
+            return game;
+          });
+        });
+        return Promise.all(charPromises);
+      })
+      .then(games => {
+        user.games = games;
+        return user;
+      });
+    });
+    return Promise.all(promises);
+  })
+  .then(([ data ]) => {
+    delete data.password
+    return data
+  });
+}
+
 function getOneByUserName (email) {
   return (
     db('users')
@@ -41,8 +74,4 @@ function create (email, password, fname, lname, birthday, location, timezone, ro
   })
 }
 
-module.exports = {
-  getAll,
-  getOneByUserName,
-  create
-}
+module.exports = { getAll, getOne, getOneByUserName, create }

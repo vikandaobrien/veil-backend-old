@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
     table.string('location').notNullable();
     table.string('timezone').notNullable();
     table.string('role').defaultsTo('Knight');
-    table.string('image').defaultsTo('');
+    table.string('image').defaultsTo('https://goo.gl/kdcuiQ');
     table.string('info', 100000).defaultsTo('');
     table.timestamps(true, true);
   })

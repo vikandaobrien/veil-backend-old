@@ -5,7 +5,20 @@ function getAll (req, res, next) {
   .then(data => {
     res.status(200).send({data});
   })
-  .catch(next)
+  .catch(next);
+}
+
+function getOne (req, res, next) {
+  model.getOne(parseInt(req.params.id))
+  .then(data => {
+    if (data) {
+      return res.status(200).send({ data })
+    }
+    else {
+      throw { status: 404, message: 'User not found' }
+    }
+  })
+  .catch(next);
 }
 
 function create (req, res, next) {
@@ -17,10 +30,7 @@ function create (req, res, next) {
   .then(function(data){
     return res.status(201).send({ data });
   })
-  .catch(next)
+  .catch(next);
 }
 
-module.exports = {
-  getAll,
-  create
-}
+module.exports = { getAll, getOne, create };

@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('name').notNullable();
     table.string('class').defaultsTo('n/a');
     table.string('server').defaultsTo('n/a');
-    table.string('image').defaultsTo('');
+    table.string('image').defaultsTo('https://goo.gl/kdcuiQ');
     table.string('info', 100000).defaultsTo('');
     table.integer('user_id').notNullable();
     table.foreign('user_id').references('users.id').onDelete('CASCADE');
